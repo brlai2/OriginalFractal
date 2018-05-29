@@ -1,22 +1,26 @@
-int col = 0;
+int num = 200;
+
 public void setup()
 {
-	size(800, 800);
-	background(0);
+  size(800, 800);
 }
 public void draw()
 {
-	fill(45, 254, 63);
-	//noFill();
-	stroke(col);
-	//strokeWeight(1);
-	fractal(400, 400, 20);
+  fill(24, 48, 149,50);
+  rect(-5, -5, 805, 805);
+  fractal(400, 400, 800);
 }
-public void fractal(int x, int y, int rad)
+public void fractal(int x, int y, int z)
 {
-  if(col>=200){
-	  ellipse(x, y, rad, rad);
-	  fractal(x, y, rad+rad);
-	  col ++;
+  ellipse(x, y, z, z);
+  if(z <= num)
+  { 
+  }
+  else
+  {
+    fractal(x+z/4, y, z/2);
+    fractal(x-z/4, y, z/2);
+    fractal(x, y+z/4, z/2);
+    fractal(x, y-z/4, z/2);
   }
 }
